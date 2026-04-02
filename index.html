@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LG Trading — Vintage Posters & Military Antiques</title>
+<style>
+
+/* ── RESET ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── PALETTE ──────────────────────────────────────── */
+:root {
+  --ink:        #1b1d15;
+  --olive:      #3c4a2b;
+  --olive-mid:  #4f5f38;
+  --olive-lite: #6b7a52;
+  --tan:        #b89a5c;
+  --tan-lite:   #d4bb82;
+  --canvas:     #f0ebe0;
+  --canvas-mid: #e6e0d2;
+  --canvas-dark:#d8d0be;
+  --white:      #ffffff;
+  --text:       #1b1d15;
+  --muted:      #6b6a58;
+  --border:     #cdc7b5;
+}
+
+/* ── BASE ─────────────────────────────────────────── */
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--canvas);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ── ANNOUNCE BAR ─────────────────────────────────── */
+.announce {
+  background: var(--olive);
+  color: var(--tan-lite);
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 0.55rem 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── NAV ──────────────────────────────────────────── */
+header {
+  background: var(--ink);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.nav-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--tan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--tan);
+}
+
+.logo-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-sub {
+  font-size: 0.6rem;
+  color: var(--tan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-svg-header {
+  height: 54px;
+  width: 54px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.hero-logo-wrap {
+  margin-bottom: 1.75rem;
+}
+
+.logo-svg-hero {
+  width: 130px;
+  height: 130px;
+}
+
+/* Nav links */
+nav {
+  display: flex;
+  align-items: stretch;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  padding: 0 1.1rem;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b0ab9e;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+nav a:hover   { color: var(--white); }
+nav a.active  { color: var(--tan-lite); border-bottom-color: var(--tan); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #b0ab9e;
+  margin: 4px 0;
+  transition: background 0.2s;
+}
+.hamburger:hover span { background: var(--white); }
+
+/* Mobile nav dropdown */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: var(--ink);
+  border-top: 1px solid #2e3020;
+  position: absolute;
+  top: 64px;
+  left: 0; right: 0;
+  z-index: 899;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  padding: 1rem 2.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b0ab9e;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  border-bottom: 1px solid #2e3020;
+  cursor: pointer;
+}
+.mobile-nav a:hover { color: var(--white); background: #252818; }
+.mobile-nav a.active { color: var(--tan-lite); }
+
+/* ── PAGES ────────────────────────────────────────── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── PAGE: HOME ───────────────────────────────────── */
+
+/* Hero */
+.hero {
+  background: var(--ink);
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  opacity: 0.28;
+}
+
+.hero-bg-img {
+  height: 520px;
+  overflow: hidden;
+}
+
+.hero-bg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(40%) sepia(20%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(27,29,21,0.96) 0%,
+    rgba(27,29,21,0.70) 40%,
+    rgba(27,29,21,0.30) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem 4rem;
+  width: 100%;
+}
+
+.hero-rule {
+  width: 48px;
+  height: 2px;
+  background: var(--tan);
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  max-width: 620px;
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: #a09888;
+  max-width: 480px;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--tan);
+  color: var(--ink);
+  padding: 0.8rem 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--tan-lite); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--canvas);
+  padding: 0.8rem 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  border: 1px solid #4a4a3a;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--tan); color: var(--tan-lite); }
+
+/* Featured section */
+.featured-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--olive-mid);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.3px;
+}
+
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--tan);
+  margin-bottom: 2.5rem;
+}
+
+/* Home featured grid — 3 col */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── ITEM CARD (shared) ───────────────────────────── */
+.item-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.item-card:hover {
+  box-shadow: 0 8px 32px rgba(27,29,21,0.14);
+  transform: translateY(-3px);
+}
+
+.item-img {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--canvas-mid);
+}
+
+.item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.item-card:hover .item-img img { transform: scale(1.04); }
+
+.item-body {
+  padding: 1.1rem 1.1rem 0.9rem;
+  border-top: 1px solid var(--canvas-dark);
+}
+
+.item-cat {
+  font-size: 0.6rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--olive-lite);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.item-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 0.7rem;
+}
+
+.item-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--canvas-dark);
+}
+
+.item-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.item-sku {
+  font-size: 0.6rem;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Condition tag */
+.item-cond {
+  font-size: 0.58rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* Heritage tag on home page */
+.heritage-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--olive);
+  color: var(--tan-lite);
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  padding: 0.28rem 0.7rem;
+}
+
+/* ── MARQUEE ──────────────────────────────────────── */
+.strip {
+  background: var(--olive);
+  border-top: 1px solid #2e3820;
+  border-bottom: 1px solid #2e3820;
+  padding: 0.75rem 0;
+  overflow: hidden;
+}
+
+.strip-inner {
+  display: flex;
+  gap: 4rem;
+  white-space: nowrap;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--tan-lite);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.strip-sep {
+  color: var(--tan);
+  opacity: 0.5;
+}
+
+/* ── PAGE: SHOP / CATALOG ─────────────────────────── */
+.catalog-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem;
+}
+
+.catalog-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -0.75rem;
+}
+
+.filter-btn:hover { color: var(--text); }
+
+.filter-btn.active {
+  color: var(--olive);
+  border-bottom-color: var(--tan);
+}
+
+.result-count {
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Shop grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.item-card.hidden { display: none; }
+
+/* ── PAGE: INNER (Militaria / Posters / Art) ──────── */
+.inner-hero {
+  background: var(--olive);
+  padding: 3.5rem 2.5rem;
+  border-bottom: 1px solid #2e3820;
+}
+
+.inner-hero-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.inner-hero-rule {
+  width: 36px;
+  height: 2px;
+  background: var(--tan);
+  margin-bottom: 1rem;
+}
+
+.inner-hero h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.3px;
+}
+
+.inner-hero p {
+  font-size: 0.9rem;
+  color: #9ea88a;
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 520px;
+}
+
+/* ── PAGE: SHIPPING ───────────────────────────────── */
+.shipping-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+}
+
+.ship-table-wrap {
+  margin-top: 2.5rem;
+  border: 1px solid var(--border);
+  background: var(--white);
+}
+
+.ship-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 2fr;
+  border-bottom: 1px solid var(--canvas-dark);
+  align-items: start;
+}
+
+.ship-row:last-child { border-bottom: none; }
+
+.ship-row.header-row {
+  background: var(--olive);
+}
+
+.ship-row.header-row .ship-cell {
+  color: var(--tan-lite);
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.ship-cell {
+  padding: 1rem 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  border-right: 1px solid var(--canvas-dark);
+}
+
+.ship-cell:last-child { border-right: none; }
+
+.ship-type-name {
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.ship-items-list {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+.ship-price-cell {
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+}
+
+.ship-note-cell {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.ship-intl-note {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--canvas-mid);
+  border-left: 3px solid var(--tan);
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── PAGE: ABOUT ──────────────────────────────────── */
+.about-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.about-body p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+}
+
+.about-body p strong {
+  color: var(--text);
+}
+
+.about-aside {
+  border-top: 2px solid var(--tan);
+  padding-top: 2rem;
+}
+
+.aside-block {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--canvas-dark);
+}
+
+.aside-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.aside-label {
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--olive-mid);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.aside-text {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+/* ── PAGE: CONTACT ────────────────────────────────── */
+.contact-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem;
+}
+
+.contact-form {
+  margin-top: 2.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--canvas);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-family: 'Georgia', serif;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--olive-mid);
+  background: var(--white);
+}
+
+.form-group textarea { min-height: 120px; resize: vertical; }
+
+.form-submit {
+  width: 100%;
+  background: var(--olive);
+  color: var(--tan-lite);
+  border: none;
+  padding: 0.9rem;
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form-submit:hover { background: var(--olive-mid); }
+
+.contact-info-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+.contact-info-item .ci-label {
+  font-size: 0.58rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--olive-mid);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.contact-info-item .ci-val {
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+/* ── MODAL ────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(27,29,21,0.82);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.overlay.open { display: flex; }
+
+.modal {
+  background: var(--white);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background: var(--ink);
+  border: none;
+  color: var(--canvas);
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.modal-close:hover { background: var(--olive); }
+
+.modal-gallery {
+  background: var(--canvas-mid);
+}
+
+.gallery-main {
+  aspect-ratio: 1;
+  background: var(--canvas-dark);
+  overflow: hidden;
+}
+
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1rem;
+}
+
+.gallery-strip {
+  display: flex;
+  gap: 3px;
+  padding: 6px;
+  background: var(--canvas-dark);
+  flex-wrap: wrap;
+}
+
+.g-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+  border: 2px solid transparent;
+}
+
+.g-thumb:hover,
+.g-thumb.active {
+  opacity: 1;
+  border-color: var(--tan);
+}
+
+.modal-info {
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.m-cat {
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--olive-lite);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.m-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--canvas-dark);
+}
+
+.m-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.m-sku {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 1.25rem;
+}
+
+.m-desc {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.m-desc strong { color: var(--text); }
+
+.m-ship {
+  background: var(--canvas);
+  border-left: 2px solid var(--tan);
+  padding: 0.75rem 1rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.m-ship strong { color: var(--text); }
+
+.m-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.m-btn-primary {
+  flex: 1;
+  background: var(--olive);
+  color: var(--tan-lite);
+  border: none;
+  padding: 0.75rem;
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.m-btn-primary:hover { background: var(--olive-mid); }
+
+.m-btn-ghost {
+  flex: 1;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.m-btn-ghost:hover { border-color: var(--olive-mid); color: var(--text); }
+
+/* ── FOOTER ───────────────────────────────────────── */
+footer {
+  background: var(--ink);
+  border-top: 1px solid #2a2d1e;
+  padding: 3rem 2.5rem;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 3rem;
+}
+
+.footer-brand .f-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 0.4rem;
+}
+
+.footer-brand .f-sub {
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5a5c48;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-links a {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5a5c48;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--tan); }
+
+.footer-copy {
+  max-width: 1280px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2d1e;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: #3a3c2e;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── TOAST ────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--olive);
+  color: var(--canvas);
+  padding: 1rem 1.5rem;
+  font-size: 0.78rem;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.3s;
+  max-width: 280px;
+  letter-spacing: 0.5px;
+}
+.toast.show { opacity: 1; transform: none; }
+.toast strong { color: var(--tan-lite); display: block; margin-bottom: 0.15rem; letter-spacing: 1px; font-size: 0.65rem; text-transform: uppercase; }
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 900px) {
+  .featured-grid { grid-template-columns: 1fr 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+@media (max-width: 700px) {
+  nav { display: none; }
+  .hamburger { display: flex; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .modal { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-info-row { grid-template-columns: 1fr; }
+  .ship-row { grid-template-columns: 1fr 1fr; }
+  .ship-row.header-row .ship-cell:nth-child(3),
+  .ship-row.header-row .ship-cell:nth-child(4),
+  .ship-row .ship-cell:nth-child(3),
+  .ship-row .ship-cell:nth-child(4) { display: none; }
+  .catalog-wrap, .shipping-wrap, .about-wrap, .contact-wrap, .featured-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .shop-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE -->
+<div class="announce">
+  Authentic &nbsp;&mdash;&nbsp; Accurately Described &nbsp;&mdash;&nbsp; US &amp; International Shipping
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-wrap">
+    <div class="logo" onclick="showPage('home')">
+      <svg class="logo-svg-header" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-label="LG Trading">
+        <defs><path id="h-top" d="M 20,100 A 80,80 0 0,1 180,100"/></defs>
+        <circle cx="100" cy="100" r="98" fill="#7e8c78"/>
+        <circle cx="100" cy="100" r="96" fill="none" stroke="#4a5445" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="84" fill="none" stroke="#4a5445" stroke-width="1"/>
+        <text font-family="'Courier New',Courier,monospace" font-size="14" font-weight="bold" fill="#4a5445" letter-spacing="3"><textPath href="#h-top" startOffset="50%" text-anchor="middle">LG-Trading</textPath></text>
+        <circle cx="100" cy="96" r="44" fill="#4a5445"/>
+        <line x1="100" y1="118" x2="100" y2="76" stroke="#8a9c84" stroke-width="2" stroke-linecap="round"/>
+        <line x1="100" y1="110" x2="87" y2="100" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="100" y1="102" x2="86" y2="92" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="100" y1="94" x2="87" y2="84" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="100" y1="86" x2="88" y2="77" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="100" y1="106" x2="113" y2="97" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="100" y1="98" x2="114" y2="89" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="100" y1="90" x2="113" y2="82" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="100" y1="82" x2="112" y2="75" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="85" cy="99" r="3.5" fill="#8a9c84"/><circle cx="84" cy="91" r="3.5" fill="#8a9c84"/>
+        <circle cx="85" cy="83" r="3.5" fill="#8a9c84"/><circle cx="87" cy="76" r="3" fill="#8a9c84"/>
+        <circle cx="114" cy="96" r="3.5" fill="#8a9c84"/><circle cx="115" cy="88" r="3.5" fill="#8a9c84"/>
+        <circle cx="114" cy="81" r="3.5" fill="#8a9c84"/><circle cx="112" cy="74" r="3" fill="#8a9c84"/>
+        <circle cx="100" cy="74" r="3.5" fill="#8a9c84"/>
+        <rect x="94" y="111" width="12" height="9" fill="#8a9c84"/>
+        <polygon points="93,112 107,112 100,105" fill="#8a9c84"/>
+        <rect x="97.5" y="115" width="4" height="5" fill="#4a5445"/>
+        <line x1="105" y1="108" x2="105" y2="105" stroke="#8a9c84" stroke-width="1.5"/>
+        <circle cx="105" cy="104" r="2" fill="#8a9c84"/>
+        <text font-family="'Courier New',Courier,monospace" font-size="7.5" fill="#4a5445" text-anchor="middle">
+          <tspan x="100" y="148">Preserving</tspan>
+          <tspan x="100" dy="9">History Through</tspan>
+          <tspan x="100" dy="9">Items of the Past</tspan>
+        </text>
+      </svg>
+    </div>
+    <nav id="mainNav">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('shop')">All Items</a>
+      <a onclick="showPage('militaria')">Militaria</a>
+      <a onclick="showPage('posters')">Posters</a>
+      <a onclick="showPage('art')">Art &amp; Collectibles</a>
+      <a onclick="showPage('shipping')">Shipping</a>
+      <a onclick="showPage('about')">About</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a onclick="showPage('home');closeMobile()">Home</a>
+    <a onclick="showPage('shop');closeMobile()">All Items</a>
+    <a onclick="showPage('militaria');closeMobile()">Militaria</a>
+    <a onclick="showPage('posters');closeMobile()">Posters</a>
+    <a onclick="showPage('art');closeMobile()">Art &amp; Collectibles</a>
+    <a onclick="showPage('shipping');closeMobile()">Shipping</a>
+    <a onclick="showPage('about');closeMobile()">About</a>
+    <a onclick="showPage('contact');closeMobile()">Contact</a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-img"><img src="WWII US Navy Steichen Posters/image1.jpeg" alt="" /></div>
+      <div class="hero-bg-img"><img src="Antique Mexican Charro Saddle/IMG_4460.jpeg" alt="" /></div>
+      <div class="hero-bg-img"><img src="Etching - Harbor Scene (Edmund Blampied)/IMG_3592.jpeg" alt="" /></div>
+      <div class="hero-bg-img"><img src="Folies Bergere Poster/IMG_1069.jpeg" alt="" /></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-logo-wrap">
+        <svg class="logo-svg-hero" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-label="LG Trading">
+          <defs><path id="p-top" d="M 20,100 A 80,80 0 0,1 180,100"/></defs>
+          <circle cx="100" cy="100" r="98" fill="#7e8c78"/>
+          <circle cx="100" cy="100" r="96" fill="none" stroke="#4a5445" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="84" fill="none" stroke="#4a5445" stroke-width="1"/>
+          <text font-family="'Courier New',Courier,monospace" font-size="14" font-weight="bold" fill="#4a5445" letter-spacing="3"><textPath href="#p-top" startOffset="50%" text-anchor="middle">LG-Trading</textPath></text>
+          <circle cx="100" cy="96" r="44" fill="#4a5445"/>
+          <line x1="100" y1="118" x2="100" y2="76" stroke="#8a9c84" stroke-width="2" stroke-linecap="round"/>
+          <line x1="100" y1="110" x2="87" y2="100" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="100" y1="102" x2="86" y2="92" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="100" y1="94" x2="87" y2="84" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="100" y1="86" x2="88" y2="77" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="100" y1="106" x2="113" y2="97" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="100" y1="98" x2="114" y2="89" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="100" y1="90" x2="113" y2="82" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="100" y1="82" x2="112" y2="75" stroke="#8a9c84" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="85" cy="99" r="3.5" fill="#8a9c84"/><circle cx="84" cy="91" r="3.5" fill="#8a9c84"/>
+          <circle cx="85" cy="83" r="3.5" fill="#8a9c84"/><circle cx="87" cy="76" r="3" fill="#8a9c84"/>
+          <circle cx="114" cy="96" r="3.5" fill="#8a9c84"/><circle cx="115" cy="88" r="3.5" fill="#8a9c84"/>
+          <circle cx="114" cy="81" r="3.5" fill="#8a9c84"/><circle cx="112" cy="74" r="3" fill="#8a9c84"/>
+          <circle cx="100" cy="74" r="3.5" fill="#8a9c84"/>
+          <rect x="94" y="111" width="12" height="9" fill="#8a9c84"/>
+          <polygon points="93,112 107,112 100,105" fill="#8a9c84"/>
+          <rect x="97.5" y="115" width="4" height="5" fill="#4a5445"/>
+          <line x1="105" y1="108" x2="105" y2="105" stroke="#8a9c84" stroke-width="1.5"/>
+          <circle cx="105" cy="104" r="2" fill="#8a9c84"/>
+          <text font-family="'Courier New',Courier,monospace" font-size="7.5" fill="#4a5445" text-anchor="middle">
+            <tspan x="100" y="148">Preserving</tspan>
+            <tspan x="100" dy="9">History Through</tspan>
+            <tspan x="100" dy="9">Items of the Past</tspan>
+          </text>
+        </svg>
+      </div>
+      <div class="hero-rule"></div>
+      <h1>Vintage Posters,<br>Military Antiques<br>&amp; Fine Collectibles</h1>
+      <p class="hero-sub">Original pieces, accurately described. Specialising in WWII militaria, vintage posters, and rare antiques.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('shop')">Browse Collection</button>
+        <button class="btn-ghost" onclick="showPage('militaria')">WWII Militaria</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="strip-inner">
+      <span>Original WWII Militaria</span>
+      <span class="strip-sep">/</span>
+      <span>Vintage Show Posters</span>
+      <span class="strip-sep">/</span>
+      <span>Signed Original Etchings</span>
+      <span class="strip-sep">/</span>
+      <span>Antique Rugs &amp; Textiles</span>
+      <span class="strip-sep">/</span>
+      <span>Fine China &amp; Porcelain</span>
+      <span class="strip-sep">/</span>
+      <span>Gold Coins &amp; Jewelry</span>
+      <span class="strip-sep">/</span>
+      <span>Original WWII Militaria</span>
+      <span class="strip-sep">/</span>
+      <span>Vintage Show Posters</span>
+      <span class="strip-sep">/</span>
+      <span>Signed Original Etchings</span>
+      <span class="strip-sep">/</span>
+      <span>Antique Rugs &amp; Textiles</span>
+      <span class="strip-sep">/</span>
+      <span>Fine China &amp; Porcelain</span>
+      <span class="strip-sep">/</span>
+      <span>Gold Coins &amp; Jewelry</span>
+      <span class="strip-sep">/</span>
+    </div>
+  </div>
+
+  <div class="featured-wrap">
+    <div class="section-label">Featured</div>
+    <h2 class="section-title">Highly Collectible Pieces</h2>
+    <div class="section-divider"></div>
+
+    <div class="featured-grid">
+
+      <!-- Steichen -->
+      <div class="item-card" onclick="openModal('p2')">
+        <div class="heritage-tag">Rare Set</div>
+        <div class="item-img">
+          <img src="WWII US Navy Steichen Posters/image1.jpeg" alt="WWII Navy Steichen Posters" loading="lazy" />
+        </div>
+        <div class="item-body">
+          <div class="item-cat">WWII Militaria &nbsp;&middot;&nbsp; Original Posters</div>
+          <div class="item-title">WWII US Navy Steichen Photographic Posters &mdash; Set of 4, c.1942&ndash;44</div>
+          <div class="item-foot">
+            <div class="item-price">$850</div>
+            <div class="item-sku">LG-1001</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blampied -->
+      <div class="item-card" onclick="openModal('p5')">
+        <div class="heritage-tag">Signed Original</div>
+        <div class="item-img">
+          <img src="Etching - Harbor Scene (Edmund Blampied)/IMG_3590.jpeg" alt="Edmund Blampied Etching" loading="lazy" />
+        </div>
+        <div class="item-body">
+          <div class="item-cat">Original Art &nbsp;&middot;&nbsp; British Print</div>
+          <div class="item-title">Edmund Blampied Signed Etching &mdash; Harbor &amp; Dock Scene, c.1920s</div>
+          <div class="item-foot">
+            <div class="item-price">$950</div>
+            <div class="item-sku">LG-1004</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charro Saddle -->
+      <div class="item-card" onclick="openModal('p7')">
+        <div class="heritage-tag">c.1900</div>
+        <div class="item-img">
+          <img src="Antique Mexican Charro Saddle/IMG_4460.jpeg" alt="Mexican Charro Saddle" loading="lazy" />
+        </div>
+        <div class="item-body">
+          <div class="item-cat">Antique &nbsp;&middot;&nbsp; Mexican Heritage</div>
+          <div class="item-title">Antique Mexican Charro Saddle &mdash; Mother-of-Pearl &amp; Wood Inlay, c.1900</div>
+          <div class="item-foot">
+            <div class="item-price">$1,900</div>
+            <div class="item-sku">LG-1006</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Folies Bergere -->
+      <div class="item-card" onclick="openModal('p3')">
+        <div class="heritage-tag">Framed</div>
+        <div class="item-img">
+          <img src="Folies Bergere Poster/IMG_1069.jpeg" alt="Folies Bergere Poster" loading="lazy" />
+        </div>
+        <div class="item-body">
+          <div class="item-cat">Vintage Poster &nbsp;&middot;&nbsp; French Art</div>
+          <div class="item-title">Foli&egrave;s Berg&egrave;re Showgirl Poster &mdash; Framed, French Cabaret</div>
+          <div class="item-foot">
+            <div class="item-price">$650</div>
+            <div class="item-sku">LG-1002</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WWII Waste Fats -->
+      <div class="item-card" onclick="openModal('p1')">
+        <div class="heritage-tag">WWII Original</div>
+        <div class="item-img">
+          <img src="WWII Save Waste Fats Poster/image5.jpeg" alt="WWII Homefront Poster" loading="lazy" />
+        </div>
+        <div class="item-body">
+          <div class="item-cat">WWII Militaria &nbsp;&middot;&nbsp; Homefront</div>
+          <div class="item-title">Original WWII Homefront Poster &mdash; &lsquo;Save Waste Fats&rsquo;, c.1943</div>
+          <div class="item-foot">
+            <div class="item-price">$175</div>
+            <div class="item-sku">LG-1000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gold Coin -->
+      <div class="item-card" onclick="openModal('p16')">
+        <div class="heritage-tag">Gold</div>
+        <div class="item-img">
+          <img src="Gold Coin Pendant/IMG_0631.jpeg" alt="Mexican Gold Coin Pendant" loading="lazy" />
+        </div>
+        <div class="item-body">
+          <div class="item-cat">Gold Coin &nbsp;&middot;&nbsp; Jewelry</div>
+          <div class="item-title">Mexican Gold Coin Pendant &mdash; Dos Pesos, 14k Bezel</div>
+          <div class="item-foot">
+            <div class="item-price">$350</div>
+            <div class="item-sku">LG-1015</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border);">
+      <button class="btn-primary" onclick="showPage('shop')">View Full Collection</button>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: SHOP (ALL)
+══════════════════════════════════════════════════ -->
+<div id="page-shop" class="page">
+
+  <div class="inner-hero">
+    <div class="inner-hero-wrap">
+      <div class="inner-hero-rule"></div>
+      <h1>Full Collection</h1>
+      <p>All current listings &mdash; vintage posters, militaria, antiques, rugs, china, coins.</p>
+    </div>
+  </div>
+
+  <div class="catalog-wrap">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterShop(this,'all')">All</button>
+      <button class="filter-btn" onclick="filterShop(this,'militaria')">WWII Militaria</button>
+      <button class="filter-btn" onclick="filterShop(this,'posters')">Posters</button>
+      <button class="filter-btn" onclick="filterShop(this,'art')">Original Art</button>
+      <button class="filter-btn" onclick="filterShop(this,'rugs')">Rugs</button>
+      <button class="filter-btn" onclick="filterShop(this,'china')">China &amp; Porcelain</button>
+      <button class="filter-btn" onclick="filterShop(this,'equestrian')">Equestrian</button>
+      <button class="filter-btn" onclick="filterShop(this,'coins')">Coins &amp; Jewelry</button>
+    </div>
+    <div class="catalog-header">
+      <div class="result-count" id="shopCount">20 items</div>
+    </div>
+    <div class="shop-grid" id="shopGrid">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+
+</div><!-- /page-shop -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: MILITARIA
+══════════════════════════════════════════════════ -->
+<div id="page-militaria" class="page">
+
+  <div class="inner-hero">
+    <div class="inner-hero-wrap">
+      <div class="inner-hero-rule"></div>
+      <h1>WWII Militaria</h1>
+      <p>Original American homefront posters and US Navy photographic prints from the Second World War.</p>
+    </div>
+  </div>
+
+  <div class="catalog-wrap">
+    <div class="shop-grid">
+
+      <div class="item-card" onclick="openModal('p1')">
+        <div class="heritage-tag">WWII Original</div>
+        <div class="item-img"><img src="WWII Save Waste Fats Poster/image5.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWII Militaria &nbsp;&middot;&nbsp; Homefront</div>
+          <div class="item-title">Original WWII Homefront Poster &mdash; &lsquo;Save Waste Fats For Gunpowder&rsquo;, c.1943</div>
+          <div class="item-foot"><div class="item-price">$175</div><div class="item-sku">LG-1000</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p2')">
+        <div class="heritage-tag">Rare Set</div>
+        <div class="item-img"><img src="WWII US Navy Steichen Posters/image1.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWII Militaria &nbsp;&middot;&nbsp; Original Posters</div>
+          <div class="item-title">WWII US Navy Steichen Photographic Posters &mdash; Set of 4, c.1942&ndash;44</div>
+          <div class="item-foot"><div class="item-price">$850</div><div class="item-sku">LG-1001</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p18')">
+        <div class="heritage-tag">WWI Original</div>
+        <div class="item-img"><img src="WWI Red Cross War Fund Poster (Barclay)/poster.png" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWI Militaria &nbsp;&middot;&nbsp; Original Poster</div>
+          <div class="item-title">WWI &lsquo;Second Red Cross War Fund&rsquo; Poster &mdash; Barclay, c.1918</div>
+          <div class="item-foot"><div class="item-price">$325</div><div class="item-sku">LG-1017</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p19')">
+        <div class="heritage-tag">WWI Original</div>
+        <div class="item-img"><img src="WWI Christmas Roll Call Poster (Greenleaf)/poster.png" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWI Militaria &nbsp;&middot;&nbsp; Original Poster</div>
+          <div class="item-title">WWI Red Cross &lsquo;Christmas Roll Call&rsquo; Poster &mdash; Ray Greenleaf, c.1917&ndash;18</div>
+          <div class="item-foot"><div class="item-price">$250</div><div class="item-sku">LG-1018</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p20')">
+        <div class="heritage-tag">WWI Original</div>
+        <div class="item-img"><img src="WWI Four Years in the Fight Poster (Lie)/poster.png" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWI Militaria &nbsp;&middot;&nbsp; Original Poster</div>
+          <div class="item-title">WWI &lsquo;Four Years in the Fight &mdash; The Women of France&rsquo; Poster &mdash; Jonas Lie, c.1918</div>
+          <div class="item-foot"><div class="item-price">$450</div><div class="item-sku">LG-1019</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /page-militaria -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: POSTERS
+══════════════════════════════════════════════════ -->
+<div id="page-posters" class="page">
+
+  <div class="inner-hero">
+    <div class="inner-hero-wrap">
+      <div class="inner-hero-rule"></div>
+      <h1>Vintage Posters</h1>
+      <p>Original show posters, wartime prints, and classic cinema &mdash; each a period original.</p>
+    </div>
+  </div>
+
+  <div class="catalog-wrap">
+    <div class="shop-grid">
+
+      <div class="item-card" onclick="openModal('p1')">
+        <div class="heritage-tag">WWII Original</div>
+        <div class="item-img"><img src="WWII Save Waste Fats Poster/image5.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWII &nbsp;&middot;&nbsp; Homefront</div>
+          <div class="item-title">Original WWII Homefront Poster &mdash; &lsquo;Save Waste Fats&rsquo;, c.1943</div>
+          <div class="item-foot"><div class="item-price">$175</div><div class="item-sku">LG-1000</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p2')">
+        <div class="heritage-tag">Rare Set</div>
+        <div class="item-img"><img src="WWII US Navy Steichen Posters/image1.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWII &nbsp;&middot;&nbsp; US Navy</div>
+          <div class="item-title">WWII US Navy Steichen Photographic Posters &mdash; Set of 4, c.1942&ndash;44</div>
+          <div class="item-foot"><div class="item-price">$850</div><div class="item-sku">LG-1001</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p3')">
+        <div class="heritage-tag">Framed</div>
+        <div class="item-img"><img src="Folies Bergere Poster/IMG_1069.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">French Art &nbsp;&middot;&nbsp; Cabaret</div>
+          <div class="item-title">Foli&egrave;s Berg&egrave;re Showgirl Poster &mdash; Framed, French Cabaret</div>
+          <div class="item-foot"><div class="item-price">$650</div><div class="item-sku">LG-1002</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p4')">
+        <div class="item-img"><img src="Alien Poster/IMG_1103.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Vintage Cinema &nbsp;&middot;&nbsp; Sci-Fi</div>
+          <div class="item-title">Vintage Alien Movie Poster &mdash; Ridley Scott, 1979</div>
+          <div class="item-foot"><div class="item-price">$225</div><div class="item-sku">LG-1003</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p18')">
+        <div class="heritage-tag">WWI Original</div>
+        <div class="item-img"><img src="WWI Red Cross War Fund Poster (Barclay)/poster.png" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWI &nbsp;&middot;&nbsp; Red Cross</div>
+          <div class="item-title">WWI &lsquo;Second Red Cross War Fund&rsquo; Poster &mdash; Barclay, c.1918</div>
+          <div class="item-foot"><div class="item-price">$325</div><div class="item-sku">LG-1017</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p19')">
+        <div class="heritage-tag">WWI Original</div>
+        <div class="item-img"><img src="WWI Christmas Roll Call Poster (Greenleaf)/poster.png" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWI &nbsp;&middot;&nbsp; Red Cross</div>
+          <div class="item-title">WWI Red Cross &lsquo;Christmas Roll Call&rsquo; Poster &mdash; Ray Greenleaf, c.1917&ndash;18</div>
+          <div class="item-foot"><div class="item-price">$250</div><div class="item-sku">LG-1018</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p20')">
+        <div class="heritage-tag">WWI Original</div>
+        <div class="item-img"><img src="WWI Four Years in the Fight Poster (Lie)/poster.png" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">WWI &nbsp;&middot;&nbsp; United War Work</div>
+          <div class="item-title">WWI &lsquo;Four Years in the Fight &mdash; The Women of France&rsquo; Poster &mdash; Jonas Lie, c.1918</div>
+          <div class="item-foot"><div class="item-price">$450</div><div class="item-sku">LG-1019</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /page-posters -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: ART & COLLECTIBLES
+══════════════════════════════════════════════════ -->
+<div id="page-art" class="page">
+
+  <div class="inner-hero">
+    <div class="inner-hero-wrap">
+      <div class="inner-hero-rule"></div>
+      <h1>Art &amp; Collectibles</h1>
+      <p>Signed original etchings, antique rugs, fine china, equestrian antiques, and curated collectibles.</p>
+    </div>
+  </div>
+
+  <div class="catalog-wrap">
+    <div class="shop-grid">
+
+      <div class="item-card" onclick="openModal('p5')">
+        <div class="heritage-tag">Signed Original</div>
+        <div class="item-img"><img src="Etching - Harbor Scene (Edmund Blampied)/IMG_3590.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Original Art &nbsp;&middot;&nbsp; British Print</div>
+          <div class="item-title">Edmund Blampied Signed Etching &mdash; Harbor Scene, c.1920s</div>
+          <div class="item-foot"><div class="item-price">$950</div><div class="item-sku">LG-1004</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p6')">
+        <div class="heritage-tag">Signed Original</div>
+        <div class="item-img"><img src="Etching - Rural Landscape (Milton Cohen)/IMG_3581.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Original Art &nbsp;&middot;&nbsp; American Print</div>
+          <div class="item-title">Milton Cohen Signed Etching &mdash; Rural Landscape, Framed</div>
+          <div class="item-foot"><div class="item-price">$175</div><div class="item-sku">LG-1005</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p7')">
+        <div class="heritage-tag">c.1900</div>
+        <div class="item-img"><img src="Antique Mexican Charro Saddle/IMG_4452.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Antique &nbsp;&middot;&nbsp; Mexican Heritage</div>
+          <div class="item-title">Antique Mexican Charro Saddle &mdash; Mother-of-Pearl Inlay, c.1900</div>
+          <div class="item-foot"><div class="item-price">$1,900</div><div class="item-sku">LG-1006</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p8')">
+        <div class="item-img"><img src="Australian Stock Saddle/IMG_4467.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Equestrian &nbsp;&middot;&nbsp; Australian</div>
+          <div class="item-title">Australian Stock Saddle &mdash; Leather, Brass Hardware</div>
+          <div class="item-foot"><div class="item-price">$500</div><div class="item-sku">LG-1007</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p9')">
+        <div class="item-img"><img src="Prayer Rug/IMG_0660.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Antique Rugs &nbsp;&middot;&nbsp; Textile</div>
+          <div class="item-title">Vintage Wool Prayer Rug &mdash; Ivory Ground, Mihrab Design</div>
+          <div class="item-foot"><div class="item-price">$300</div><div class="item-sku">LG-1008</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p10')">
+        <div class="item-img"><img src="Bokhara Rug/IMG_0663.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Antique Rugs &nbsp;&middot;&nbsp; Central Asian</div>
+          <div class="item-title">Vintage Red Bokhara Area Rug &mdash; Hand-Knotted, Gul Pattern</div>
+          <div class="item-foot"><div class="item-price">$450</div><div class="item-sku">LG-1009</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p11')">
+        <div class="item-img"><img src="Tribal Geometric Rug/IMG_0717.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Antique Rugs &nbsp;&middot;&nbsp; Tribal</div>
+          <div class="item-title">Vintage Tribal Geometric Rug &mdash; Red &amp; Cream Diamond Pattern</div>
+          <div class="item-foot"><div class="item-price">$400</div><div class="item-sku">LG-1010</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p12')">
+        <div class="item-img"><img src="Limoges China/IMG_0815.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">French Porcelain &nbsp;&middot;&nbsp; Limoges</div>
+          <div class="item-title">Antique Limoges Demitasse Set &mdash; 6 Cups &amp; Saucers, Gold Gilt</div>
+          <div class="item-foot"><div class="item-price">$120</div><div class="item-sku">LG-1011</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p13')">
+        <div class="item-img"><img src="Wedgwood Jasperware/IMG_0819.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">English China &nbsp;&middot;&nbsp; Wedgwood</div>
+          <div class="item-title">Wedgwood Jasperware Collection &mdash; 10 Pieces, Blue &amp; Green</div>
+          <div class="item-foot"><div class="item-price">$180</div><div class="item-sku">LG-1012</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p14')">
+        <div class="item-img"><img src="Royal Doulton Gandalf Figurine/IMG_0828.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Royal Doulton &nbsp;&middot;&nbsp; Tolkien</div>
+          <div class="item-title">Royal Doulton Gandalf Figurine HN 2911 &mdash; Middle Earth, 1979</div>
+          <div class="item-foot"><div class="item-price">$90</div><div class="item-sku">LG-1013</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p15')">
+        <div class="heritage-tag">Complete Set</div>
+        <div class="item-img"><img src="Antique Porcelain Kitchen Canister Set/ReactNativeBlobUtilTmp_suk11mn4vurkpobnlugrm.jpg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Antique Kitchen &nbsp;&middot;&nbsp; Porcelain</div>
+          <div class="item-title">Antique Porcelain Kitchen Canister Set &mdash; 11 Pieces, Early 20th C.</div>
+          <div class="item-foot"><div class="item-price">$250</div><div class="item-sku">LG-1014</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p16')">
+        <div class="heritage-tag">Gold</div>
+        <div class="item-img"><img src="Gold Coin Pendant/IMG_0631.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Gold Coin &nbsp;&middot;&nbsp; Jewelry</div>
+          <div class="item-title">Mexican Gold Coin Pendant &mdash; Dos Pesos, 14k Bezel</div>
+          <div class="item-foot"><div class="item-price">$350</div><div class="item-sku">LG-1015</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p17')">
+        <div class="item-img"><img src="US Coin Collection/IMG_9032.jpeg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">US Coins &nbsp;&middot;&nbsp; Numismatics</div>
+          <div class="item-title">US Coin Collection &mdash; Eisenhower, Kennedy &amp; Washington, 33 Coins</div>
+          <div class="item-foot"><div class="item-price">$175</div><div class="item-sku">LG-1016</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /page-art -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: SHIPPING
+══════════════════════════════════════════════════ -->
+<div id="page-shipping" class="page">
+
+  <div class="inner-hero">
+    <div class="inner-hero-wrap">
+      <div class="inner-hero-rule"></div>
+      <h1>Shipping</h1>
+      <p>All items are insured and tracked. Estimates below are for domestic US shipping.</p>
+    </div>
+  </div>
+
+  <div class="shipping-wrap">
+
+    <div class="ship-table-wrap">
+      <div class="ship-row header-row">
+        <div class="ship-cell">Category</div>
+        <div class="ship-cell">Items</div>
+        <div class="ship-cell">Est. Cost</div>
+        <div class="ship-cell">Method &amp; Notes</div>
+      </div>
+      <div class="ship-row">
+        <div class="ship-cell">
+          <div class="ship-type-name">Rolled Posters</div>
+        </div>
+        <div class="ship-cell"><div class="ship-items-list">WWII Homefront Poster<br>Alien Movie Poster<br>Unframed Prints</div></div>
+        <div class="ship-cell"><div class="ship-price-cell">$15&ndash;28</div></div>
+        <div class="ship-cell"><div class="ship-note-cell">Archival tube. USPS Priority Mail.</div></div>
+      </div>
+      <div class="ship-row">
+        <div class="ship-cell"><div class="ship-type-name">Framed Art</div></div>
+        <div class="ship-cell"><div class="ship-items-list">Foli&egrave;s Berg&egrave;re Poster<br>Blampied Etching<br>Cohen Etching</div></div>
+        <div class="ship-cell"><div class="ship-price-cell">$35&ndash;65</div></div>
+        <div class="ship-cell"><div class="ship-note-cell">Corner-protected and double-boxed. UPS Ground.</div></div>
+      </div>
+      <div class="ship-row">
+        <div class="ship-cell"><div class="ship-type-name">Saddles &amp; Large</div></div>
+        <div class="ship-cell"><div class="ship-items-list">Mexican Charro Saddle<br>Australian Stock Saddle</div></div>
+        <div class="ship-cell"><div class="ship-price-cell">$75&ndash;120</div></div>
+        <div class="ship-cell"><div class="ship-note-cell">Custom crating. UPS Ground freight.</div></div>
+      </div>
+      <div class="ship-row">
+        <div class="ship-cell"><div class="ship-type-name">Rugs &amp; Textiles</div></div>
+        <div class="ship-cell"><div class="ship-items-list">Bokhara Rug<br>Prayer Rug<br>Tribal Rug</div></div>
+        <div class="ship-cell"><div class="ship-price-cell">$25&ndash;45</div></div>
+        <div class="ship-cell"><div class="ship-note-cell">Rolled in protective sleeve. USPS Priority Mail.</div></div>
+      </div>
+      <div class="ship-row">
+        <div class="ship-cell"><div class="ship-type-name">China &amp; Porcelain</div></div>
+        <div class="ship-cell"><div class="ship-items-list">Limoges Set<br>Wedgwood Collection<br>Canister Set<br>Gandalf Figurine</div></div>
+        <div class="ship-cell"><div class="ship-price-cell">$15&ndash;65</div></div>
+        <div class="ship-cell"><div class="ship-note-cell">Individually wrapped, foam-padded. UPS Ground.</div></div>
+      </div>
+      <div class="ship-row">
+        <div class="ship-cell"><div class="ship-type-name">Coins &amp; Jewelry</div></div>
+        <div class="ship-cell"><div class="ship-items-list">Gold Coin Pendant<br>US Coin Collection</div></div>
+        <div class="ship-cell"><div class="ship-price-cell">$10&ndash;18</div></div>
+        <div class="ship-cell"><div class="ship-note-cell">USPS First Class, signature confirmation, full insurance.</div></div>
+      </div>
+    </div>
+
+    <div class="ship-intl-note">
+      International shipping is available on all items. Contact us before purchasing for a shipping quote to your location.
+    </div>
+
+  </div>
+
+</div><!-- /page-shipping -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════════════════════ -->
+<div id="page-about" class="page">
+
+  <div class="inner-hero">
+    <div class="inner-hero-wrap">
+      <div class="inner-hero-rule"></div>
+      <h1>About LG Trading</h1>
+      <p>Preserving history through items of the past.</p>
+    </div>
+  </div>
+
+  <div class="about-wrap">
+    <div class="about-body">
+      <!-- Content coming soon — script will be provided by owner -->
+      <p style="color: var(--muted); font-style: italic;">Content coming soon.</p>
+    </div>
+  </div>
+
+</div><!-- /page-about -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+
+  <div class="inner-hero">
+    <div class="inner-hero-wrap">
+      <div class="inner-hero-rule"></div>
+      <h1>Contact</h1>
+      <p>Inquiries, additional photographs, condition questions, and shipping quotes.</p>
+    </div>
+  </div>
+
+  <div class="contact-wrap">
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="fname" placeholder="First name" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="lname" placeholder="Last name" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="email@address.com" />
+      </div>
+      <div class="form-group">
+        <label>Item of Interest</label>
+        <select id="itemsel">
+          <option value="">Select a listing</option>
+          <option>LG-1000 &mdash; WWII Homefront Poster &mdash; $175</option>
+          <option>LG-1001 &mdash; WWII Navy Steichen Set of 4 &mdash; $850</option>
+          <option>LG-1002 &mdash; Foli&egrave;s Berg&egrave;re Poster (Framed) &mdash; $650</option>
+          <option>LG-1003 &mdash; Alien Movie Poster &mdash; $225</option>
+          <option>LG-1004 &mdash; Edmund Blampied Signed Etching &mdash; $950</option>
+          <option>LG-1005 &mdash; Milton Cohen Signed Etching &mdash; $175</option>
+          <option>LG-1006 &mdash; Antique Mexican Charro Saddle &mdash; $1,900</option>
+          <option>LG-1007 &mdash; Australian Stock Saddle &mdash; $500</option>
+          <option>LG-1008 &mdash; Vintage Prayer Rug &mdash; $300</option>
+          <option>LG-1009 &mdash; Red Bokhara Rug &mdash; $450</option>
+          <option>LG-1010 &mdash; Tribal Geometric Rug &mdash; $400</option>
+          <option>LG-1011 &mdash; Limoges Demitasse Set &mdash; $120</option>
+          <option>LG-1012 &mdash; Wedgwood Jasperware Collection &mdash; $180</option>
+          <option>LG-1013 &mdash; Royal Doulton Gandalf Figurine &mdash; $90</option>
+          <option>LG-1014 &mdash; Porcelain Kitchen Canister Set &mdash; $250</option>
+          <option>LG-1015 &mdash; Mexican Gold Coin Pendant &mdash; $350</option>
+          <option>LG-1016 &mdash; US Coin Collection &mdash; $175</option>
+          <option>LG-1017 &mdash; WWI Second Red Cross War Fund Poster (Barclay) &mdash; $325</option>
+          <option>LG-1018 &mdash; WWI Christmas Roll Call Poster (Greenleaf) &mdash; $250</option>
+          <option>LG-1019 &mdash; WWI Four Years in the Fight Poster (Lie) &mdash; $450</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="msg" placeholder="Condition questions, additional photographs, measurements, shipping quotes..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Send Inquiry</button>
+    </div>
+
+    <div class="contact-info-row">
+      <div class="contact-info-item">
+        <div class="ci-label">Email</div>
+        <div class="ci-val">lucahangoetzke@gmail.com</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="ci-label">Ships To</div>
+        <div class="ci-val">US &amp; International</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="ci-label">Response</div>
+        <div class="ci-val">Within 24 hours</div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /page-contact -->
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="f-name">LG Trading</div>
+      <div class="f-sub">Vintage Posters &nbsp;&middot;&nbsp; Military Antiques &nbsp;&middot;&nbsp; Fine Collectibles</div>
+    </div>
+    <div class="footer-links">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('shop')">All Items</a>
+      <a onclick="showPage('militaria')">Militaria</a>
+      <a onclick="showPage('posters')">Posters</a>
+      <a onclick="showPage('shipping')">Shipping</a>
+      <a onclick="showPage('about')">About</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    &copy; 2026 LG Trading. All rights reserved. All items subject to prior sale.
+  </div>
+</footer>
+
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="closeOverlay(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+    <div class="modal-gallery">
+      <div class="gallery-main"><img id="gMain" src="" alt="" /></div>
+      <div class="gallery-strip" id="gStrip"></div>
+    </div>
+    <div class="modal-info">
+      <div class="m-cat" id="mCat"></div>
+      <div class="m-title" id="mTitle"></div>
+      <div class="m-price" id="mPrice"></div>
+      <div class="m-sku" id="mSku"></div>
+      <div class="m-desc" id="mDesc"></div>
+      <div class="m-ship" id="mShip"></div>
+      <div class="m-actions">
+        <button class="m-btn-primary" onclick="goContact()">Inquire About This Item</button>
+        <button class="m-btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><strong id="tTitle"></strong><span id="tMsg"></span></div>
+
+
+<script>
+/* ── PRODUCT DATA ─────────────────────────────────── */
+const P = {
+  p1: {
+    cat:'WWII Militaria &nbsp;&middot;&nbsp; Homefront', sku:'LG-1000',
+    title:"Original WWII Homefront Poster \u2014 \u2018Save Waste Fats For Gunpowder\u2019, c.1943",
+    price:'$175',
+    desc:`Original American homefront propaganda poster. Bold cannon graphic with yellow and blue lettering on white ground. Part of the US government\u2019s wartime conservation campaign, c.1943. Condition: Good \u2014 age-appropriate wear.`,
+    ship:`<strong>Rolled poster.</strong> Archival tube. Est. $15\u201325 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['WWII Save Waste Fats Poster/image5.jpeg']
+  },
+  p2: {
+    cat:'WWII Militaria &nbsp;&middot;&nbsp; Original Posters', sku:'LG-1001',
+    title:"WWII US Navy Steichen Photographic Posters \u2014 Set of 4, c.1942\u201344",
+    price:'$850',
+    desc:`Set of 4 original WWII US Navy photographic posters produced under <strong>Edward Steichen</strong> (1879\u20131973), Director of the Naval Aviation Photographic Unit. Steichen\u2019s WWII work is held in the Smithsonian National Air & Space Museum. Large-format, dramatic naval photography with bold patriotic typography. Extremely rare as a complete set. Condition: Good \u2014 paper toning consistent with age.`,
+    ship:`<strong>Rolled poster set.</strong> Archival tube. Est. $18\u201328 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['WWII US Navy Steichen Posters/image1.jpeg','WWII US Navy Steichen Posters/image2.jpeg','WWII US Navy Steichen Posters/image3.jpeg','WWII US Navy Steichen Posters/image4.jpeg','WWII US Navy Steichen Posters/image0.jpeg']
+  },
+  p3: {
+    cat:'Vintage Poster &nbsp;&middot;&nbsp; French Art', sku:'LG-1002',
+    title:"Foli\u00e8s Berg\u00e8re Showgirl Poster \u2014 Framed, French Cabaret",
+    price:'$650',
+    desc:`Original Foli\u00e8s Berg\u00e8re showgirl poster. Dancer in blue ostrich feathers, jewels, and white gloves. Professionally mounted on black backing with gold corner hardware. The Foli\u00e8s Berg\u00e8re is one of the most iconic cabarets in Parisian history. Condition: Like New \u2014 professionally mounted, excellent display condition.`,
+    ship:`<strong>Framed item.</strong> Corner-protected and double-boxed. Est. $35\u201355 via UPS Ground within the US. International \u2014 contact for quote.`,
+    imgs:['Folies Bergere Poster/IMG_1069.jpeg','Folies Bergere Poster/IMG_1070.jpeg']
+  },
+  p4: {
+    cat:'Vintage Cinema &nbsp;&middot;&nbsp; Sci-Fi', sku:'LG-1003',
+    title:"Vintage Alien Movie Poster \u2014 Ridley Scott, 1979",
+    price:'$225',
+    desc:`Vintage poster for Ridley Scott\u2019s 1979 sci-fi film <em>Alien</em>. Original period poster. Condition: Good.`,
+    ship:`<strong>Rolled poster.</strong> Archival tube. Est. $15\u201325 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['Alien Poster/IMG_1103.jpeg']
+  },
+  p5: {
+    cat:'Original Art &nbsp;&middot;&nbsp; British Print', sku:'LG-1004',
+    title:"Edmund Blampied Signed Etching \u2014 Harbor & Dock Scene, c.1920s",
+    price:'$950',
+    desc:`Original signed etching by <strong>Edmund Blampied</strong> (1886\u20131966), Jersey-born British artist whose work is held in the British Museum. Harbor and dock scene with steam ships, cranes, and dock workers. Pencil-signed in the lower margin. Period-appropriate frame. Condition: Good \u2014 age-appropriate toning.`,
+    ship:`<strong>Framed print.</strong> Foam corners, double-boxed. Est. $45\u201365 via UPS Ground within the US. International \u2014 contact for quote.`,
+    imgs:['Etching - Harbor Scene (Edmund Blampied)/IMG_3590.jpeg','Etching - Harbor Scene (Edmund Blampied)/IMG_3591.jpeg','Etching - Harbor Scene (Edmund Blampied)/IMG_3592.jpeg']
+  },
+  p6: {
+    cat:'Original Art &nbsp;&middot;&nbsp; American Print', sku:'LG-1005',
+    title:"Milton Cohen Signed Etching \u2014 Rural Landscape with Farmhouse, Framed",
+    price:'$175',
+    desc:`Original signed etching. Rural landscape with winding dirt road, large bare tree, and farmhouse. Pencil-signed \u2018Milton Cohen\u2019 in the lower margin. Dark wood frame with cream mat. Mid-20th century American artist. Condition: Good.`,
+    ship:`<strong>Framed print.</strong> Corner-protected, double-boxed. Est. $35\u201350 via UPS Ground within the US. International \u2014 contact for quote.`,
+    imgs:['Etching - Rural Landscape (Milton Cohen)/IMG_3581.jpeg','Etching - Rural Landscape (Milton Cohen)/IMG_3582.jpeg','Etching - Rural Landscape (Milton Cohen)/IMG_3583.jpeg']
+  },
+  p7: {
+    cat:'Antique &nbsp;&middot;&nbsp; Mexican Heritage', sku:'LG-1006',
+    title:"Antique Mexican Charro Saddle \u2014 Mother-of-Pearl & Wood Inlay, c.1900",
+    price:'$1,900',
+    desc:`Antique Mexican charro saddle, c.1900. Exceptional <strong>mother-of-pearl and wood floral inlay</strong> on the cantle and horn. Hand-tooled leather throughout with intricate border patterns. Saddle blankets included. Leather and inlay well-preserved. Condition: Good \u2014 age-appropriate wear, structure sound.`,
+    ship:`<strong>Large item.</strong> Custom crating. Est. $85\u2013120 via UPS Ground within the US. International freight \u2014 contact for quote.`,
+    imgs:['Antique Mexican Charro Saddle/IMG_4460.jpeg','Antique Mexican Charro Saddle/IMG_4458.jpeg','Antique Mexican Charro Saddle/IMG_4456.jpeg','Antique Mexican Charro Saddle/IMG_4452.jpeg','Antique Mexican Charro Saddle/IMG_4453.jpeg','Antique Mexican Charro Saddle/IMG_4454.jpeg','Antique Mexican Charro Saddle/IMG_4455.jpeg','Antique Mexican Charro Saddle/IMG_4457.jpeg']
+  },
+  p8: {
+    cat:'Equestrian &nbsp;&middot;&nbsp; Australian', sku:'LG-1007',
+    title:"Australian Stock Saddle \u2014 Leather, Brass Hardware, Sheepskin Numnah",
+    price:'$500',
+    desc:`Australian-made stock saddle in tan leather. High rounded pommel, deep leather seat, ornate cutwork on the skirts. Brass D-ring hardware. Includes sheepskin numnah, stirrup leathers, metal stirrups, and breastplate. Leather supple and in good condition. Condition: Good.`,
+    ship:`<strong>Large item.</strong> Professionally packed. Est. $75\u2013100 via UPS Ground within the US. International freight \u2014 contact for quote.`,
+    imgs:['Australian Stock Saddle/IMG_4467.jpeg','Australian Stock Saddle/IMG_4469.jpeg','Australian Stock Saddle/IMG_4470.jpeg','Australian Stock Saddle/IMG_4476.jpeg','Australian Stock Saddle/IMG_4482.jpeg']
+  },
+  p9: {
+    cat:'Antique Rugs &nbsp;&middot;&nbsp; Textile', sku:'LG-1008',
+    title:"Vintage Wool Prayer Rug \u2014 Ivory Ground, Mihrab Design, Fringed",
+    price:'$300',
+    desc:`Vintage wool prayer rug with classic mihrab (mosque arch) design. Ivory/cream ground with dark burgundy border and geometric motifs. Knotted fringe at both ends. Gentle wear consistent with age. Condition: Good.`,
+    ship:`<strong>Rug.</strong> Rolled in protective sleeve. Est. $25\u201340 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['Prayer Rug/IMG_0660.jpeg']
+  },
+  p10: {
+    cat:'Antique Rugs &nbsp;&middot;&nbsp; Central Asian', sku:'LG-1009',
+    title:"Vintage Red Bokhara Area Rug \u2014 Hand-Knotted, Elephant Foot Gul Pattern",
+    price:'$450',
+    desc:`Vintage Bokhara rug in deep red with traditional elephant foot (gul) medallion repeat. Hand-knotted wool with geometric border. Gentle wear consistent with age. Condition: Good.`,
+    ship:`<strong>Rug.</strong> Rolled in protective sleeve. Est. $30\u201345 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['Bokhara Rug/IMG_0663.jpeg']
+  },
+  p11: {
+    cat:'Antique Rugs &nbsp;&middot;&nbsp; Tribal', sku:'LG-1010',
+    title:"Vintage Tribal Geometric Rug \u2014 Red & Cream Diamond Pattern, Fringed",
+    price:'$400',
+    desc:`Vintage tribal rug with bold geometric diamond pattern in red and cream. Hand-knotted construction with fringe ends. Gentle wear consistent with age. Condition: Good.`,
+    ship:`<strong>Rug.</strong> Rolled in protective sleeve. Est. $25\u201340 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['Tribal Geometric Rug/IMG_0717.jpeg','Tribal Geometric Rug/IMG_0661.jpeg']
+  },
+  p12: {
+    cat:'French Porcelain &nbsp;&middot;&nbsp; Limoges', sku:'LG-1011',
+    title:"Antique Limoges France Demitasse Set \u2014 6 Cups & Saucers, Gold Gilt Border",
+    price:'$120',
+    desc:`Antique Limoges France demitasse set. White porcelain with gold filigree border. Marks include L. Bernardaud & Co. and Lanternier & Co. 6 cups and 6 saucers. No chips or cracks. Condition: Like New.`,
+    ship:`<strong>Fragile china.</strong> Individually wrapped, foam-padded, double-walled box. Est. $35\u201355 via UPS Ground within the US. International \u2014 contact for quote.`,
+    imgs:['Limoges China/IMG_0815.jpeg','Limoges China/IMG_0811.jpeg','Limoges China/IMG_0812.jpeg','Limoges China/IMG_0813.jpeg','Limoges China/IMG_0814.jpeg']
+  },
+  p13: {
+    cat:'English China &nbsp;&middot;&nbsp; Wedgwood', sku:'LG-1012',
+    title:"Wedgwood Jasperware Collection \u2014 10 Pieces, Blue & Green",
+    price:'$180',
+    desc:`Wedgwood jasperware in classic blue and sage green. Includes 1993 Christmas collector\u2019s plate (original box), bud vase, heart trinket box, heart dish, round trinket lids, green rectangular plaque, and more. Approximately 10 pieces. All bear authentic Wedgwood marks. Condition: Like New.`,
+    ship:`<strong>Fragile china.</strong> Individually wrapped and padded. Est. $25\u201340 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['Wedgwood Jasperware/IMG_0819.jpeg','Wedgwood Jasperware/IMG_0820.jpeg','Wedgwood Jasperware/IMG_0821.jpeg','Wedgwood Jasperware/IMG_0822.jpeg','Wedgwood Jasperware/IMG_0823.jpeg']
+  },
+  p14: {
+    cat:'Royal Doulton &nbsp;&middot;&nbsp; Tolkien', sku:'LG-1013',
+    title:"Royal Doulton Gandalf Figurine HN 2911 \u2014 Middle Earth, 1979",
+    price:'$90',
+    desc:`Royal Doulton Gandalf figurine, The Middle Earth series. Model HN 2911. Licensed by Tolkien Enterprises, 1979. Made in England. Approximately 7 inches tall. No chips, cracks, or repairs. Condition: Like New.`,
+    ship:`<strong>Figurine.</strong> Double-boxed with foam surround. Est. $15\u201325 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['Royal Doulton Gandalf Figurine/IMG_0828.jpeg','Royal Doulton Gandalf Figurine/IMG_0829.jpeg']
+  },
+  p15: {
+    cat:'Antique Kitchen &nbsp;&middot;&nbsp; Porcelain', sku:'LG-1014',
+    title:"Antique Porcelain Kitchen Canister Set \u2014 11 Pieces, Early 20th Century",
+    price:'$250',
+    desc:`Antique porcelain kitchen canister set, 11 pieces. White with decorative red and blue floral border. Large canisters: Coffee, Tea, Salt, Sugar, Oatmeal, Rice, Prunes. Spice jars: Ginger, Cinnamon, Allspice, Nutmeg, Cloves. No chips or cracks. Complete set. Condition: Good.`,
+    ship:`<strong>Fragile, heavy.</strong> Individually wrapped, foam-padded box. Est. $45\u201365 via UPS Ground within the US. International \u2014 contact for quote.`,
+    imgs:['Antique Porcelain Kitchen Canister Set/ReactNativeBlobUtilTmp_suk11mn4vurkpobnlugrm.jpg']
+  },
+  p16: {
+    cat:'Gold Coin &nbsp;&middot;&nbsp; Jewelry', sku:'LG-1015',
+    title:"Mexican Gold Coin Pendant \u2014 Dos Pesos, 14k Gold Bezel",
+    price:'$350',
+    desc:`Genuine Mexican Dos Pesos (2 Peso) gold coin in a 14k yellow gold bezel with bail. Classic Mexican eagle/coat of arms motif. Contains approximately 1.48g of 90% pure gold. Melt value approximately $200+ at current prices. Ready to wear as a pendant. Condition: Good \u2014 circulated coin, bezel in good condition.`,
+    ship:`<strong>Insured mail.</strong> USPS First Class with signature confirmation and full insurance. Est. $10\u201318 within the US. International \u2014 contact for quote.`,
+    imgs:['Gold Coin Pendant/IMG_0631.jpeg','Gold Coin Pendant/IMG_0632.jpeg','Gold Coin Pendant/IMG_0633.jpeg','Gold Coin Pendant/IMG_0634.jpeg','Gold Coin Pendant/IMG_0635.jpeg','Gold Coin Pendant/IMG_0637.jpeg']
+  },
+  p17: {
+    cat:'US Coins &nbsp;&middot;&nbsp; Numismatics', sku:'LG-1016',
+    title:"US Coin Collection \u2014 Eisenhower, Kennedy & Washington, 33 Coins",
+    price:'$175',
+    desc:`Approximately 33 US coins on burgundy cloth display. Denominations: Eisenhower Dollars, Kennedy Half Dollars, and Washington Quarters. May include pre-1965 silver coins. 1964 Kennedy halves are 90% silver. S-mint Eisenhower dollars are 40% silver. Sold as a lot. Condition: Good \u2014 circulated, normal wear.`,
+    ship:`<strong>Insured mail.</strong> USPS First Class with signature confirmation and full insurance. Est. $10\u201318 within the US. International \u2014 contact for quote.`,
+    imgs:['US Coin Collection/IMG_9032.jpeg']
+  },
+  p18: {
+    cat:'WWI Militaria &nbsp;&middot;&nbsp; Original Poster', sku:'LG-1017',
+    title:"WWI \u2018Second Red Cross War Fund\u2019 Poster \u2014 Barclay, c.1918",
+    price:'$325',
+    desc:`Original American Red Cross fundraising poster by artist <strong>Barclay</strong>, c.1918. A medic carries a wounded soldier across a devastated battlefield, his shadow forming the shape of a Red Cross. Issued for the Second Red Cross War Fund campaign. Linen-backed. Size: approximately 32 \xd7 22 in. Condition: Good \u2014 repaired tears, marginal discoloration consistent with age.`,
+    ship:`<strong>Rolled poster.</strong> Archival tube. Est. $15\u201325 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['WWI Red Cross War Fund Poster (Barclay)/poster.png']
+  },
+  p19: {
+    cat:'WWI Militaria &nbsp;&middot;&nbsp; Original Poster', sku:'LG-1018',
+    title:"WWI Red Cross \u2018Christmas Roll Call\u2019 Poster \u2014 Ray Greenleaf, c.1917\u201318",
+    price:'$250',
+    desc:`Original American Red Cross poster by <strong>Ray Greenleaf</strong>. Winter scene \u2014 snow-covered pine trees and a warmly lit cottage. Text reads: <em>\u201cAnswer the Red Cross Christmas Roll Call \u2014 All you need is a heart and a dollar.\u201d</em> Seasonal Red Cross membership drive issued during WWI. Linen-backed. Size: approximately 29\xbe \xd7 20 in. Condition: Good \u2014 repaired tears, marginal discoloration consistent with age.`,
+    ship:`<strong>Rolled poster.</strong> Archival tube. Est. $15\u201325 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['WWI Christmas Roll Call Poster (Greenleaf)/poster.png']
+  },
+  p20: {
+    cat:'WWI Militaria &nbsp;&middot;&nbsp; Original Poster', sku:'LG-1019',
+    title:"WWI \u2018Four Years in the Fight \u2014 The Women of France\u2019 Poster \u2014 Jonas Lie, c.1918",
+    price:'$450',
+    desc:`Original WWI United War Work Campaign poster by American artist <strong>Jonas Lie</strong> (1880\u20131940), member of the National Academy of Design. Depicts French women working in a munitions factory \u2014 a rare tribute to wartime industrial labour. Printed by <strong>Strobridge Litho Co.</strong>, Cincinnati. Linen-backed. Largest format at approximately 41\xbe \xd7 28 in. Condition: Good \u2014 repaired tears, marginal discoloration consistent with age.`,
+    ship:`<strong>Large rolled poster.</strong> Archival tube. Est. $18\u201330 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
+    imgs:['WWI Four Years in the Fight Poster (Lie)/poster.png']
+  }
+};
+
+/* ── ALL ITEMS for dynamic shop grid ──────────────── */
+const allItems = [
+  { id:'p1',  cats:['militaria','posters'] },
+  { id:'p2',  cats:['militaria','posters'] },
+  { id:'p3',  cats:['posters','art'] },
+  { id:'p4',  cats:['posters'] },
+  { id:'p5',  cats:['art'] },
+  { id:'p6',  cats:['art'] },
+  { id:'p7',  cats:['equestrian','art'] },
+  { id:'p8',  cats:['equestrian','art'] },
+  { id:'p9',  cats:['rugs','art'] },
+  { id:'p10', cats:['rugs','art'] },
+  { id:'p11', cats:['rugs','art'] },
+  { id:'p12', cats:['china','art'] },
+  { id:'p13', cats:['china','art'] },
+  { id:'p14', cats:['china','art'] },
+  { id:'p15', cats:['china','art'] },
+  { id:'p16', cats:['coins'] },
+  { id:'p17', cats:['coins'] },
+  { id:'p18', cats:['militaria','posters'] },
+  { id:'p19', cats:['militaria','posters'] },
+  { id:'p20', cats:['militaria','posters'] }
+];
+
+/* Build shop grid on load */
+(function buildShopGrid() {
+  const g = document.getElementById('shopGrid');
+  allItems.forEach(item => {
+    const p = P[item.id];
+    const div = document.createElement('div');
+    div.className = 'item-card';
+    div.setAttribute('data-cats', item.cats.join(' '));
+    div.onclick = () => openModal(item.id);
+    div.innerHTML = `
+      <div class="item-img"><img src="${p.imgs[0]}" alt="${p.title}" loading="lazy" /></div>
+      <div class="item-body">
+        <div class="item-cat">${p.cat}</div>
+        <div class="item-title">${p.title}</div>
+        <div class="item-foot">
+          <div class="item-price">${p.price}</div>
+          <div class="item-sku">${p.sku}</div>
+        </div>
+      </div>`;
+    g.appendChild(div);
+  });
+})();
+
+/* ── PAGE NAVIGATION ──────────────────────────────── */
+const pages = ['home','shop','militaria','posters','art','shipping','about','contact'];
+
+function showPage(id) {
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) el.classList.toggle('active', p === id);
+  });
+  document.querySelectorAll('#mainNav a, #mobileNav a').forEach((a, i) => {
+    const pg = ['home','shop','militaria','posters','art','shipping','about','contact'][i];
+    a.classList.toggle('active', pg === id);
+  });
+  window.scrollTo(0, 0);
+}
+
+/* ── SHOP FILTER ──────────────────────────────────── */
+function filterShop(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  let count = 0;
+  document.querySelectorAll('#shopGrid .item-card').forEach(card => {
+    const cats = card.getAttribute('data-cats') || '';
+    const show = cat === 'all' || cats.includes(cat);
+    card.classList.toggle('hidden', !show);
+    if (show) count++;
+  });
+  document.getElementById('shopCount').textContent = count + ' item' + (count !== 1 ? 's' : '');
+}
+
+/* ── MODAL ────────────────────────────────────────── */
+function openModal(id) {
+  const p = P[id];
+  document.getElementById('mCat').innerHTML   = p.cat;
+  document.getElementById('mTitle').textContent = p.title;
+  document.getElementById('mPrice').textContent = p.price;
+  document.getElementById('mSku').textContent   = p.sku;
+  document.getElementById('mDesc').innerHTML   = p.desc;
+  document.getElementById('mShip').innerHTML   = p.ship;
+  const main  = document.getElementById('gMain');
+  const strip = document.getElementById('gStrip');
+  main.src = p.imgs[0];
+  main.alt = p.title;
+  strip.innerHTML = '';
+  p.imgs.forEach((src, i) => {
+    const t = document.createElement('img');
+    t.src = src; t.alt = ''; t.className = 'g-thumb' + (i === 0 ? ' active' : '');
+    t.onclick = () => { main.src = src; strip.querySelectorAll('.g-thumb').forEach(x => x.classList.remove('active')); t.classList.add('active'); };
+    strip.appendChild(t);
+  });
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeOverlay(e) { if (e.target === document.getElementById('overlay')) closeModal(); }
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ── CONTACT ──────────────────────────────────────── */
+function goContact() {
+  closeModal();
+  setTimeout(() => showPage('contact'), 200);
+}
+
+function submitForm() {
+  const n = document.getElementById('fname').value.trim();
+  const e = document.getElementById('email').value.trim();
+  if (!n || !e) { toast('Required', 'Please enter your name and email.'); return; }
+  toast('Inquiry Sent', 'We will respond within 24 hours.');
+  ['fname','lname','email','itemsel','msg'].forEach(id => document.getElementById(id).value = '');
+}
+
+function toast(title, msg) {
+  document.getElementById('tTitle').textContent = title;
+  document.getElementById('tMsg').textContent   = msg;
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+/* ── MOBILE NAV ───────────────────────────────────── */
+function toggleMobile() { document.getElementById('mobileNav').classList.toggle('open'); }
+function closeMobile()  { document.getElementById('mobileNav').classList.remove('open'); }
+
+/* Set first nav item active on load */
+document.querySelectorAll('#mainNav a')[0].classList.add('active');
+</script>
+</body>
+</html>
