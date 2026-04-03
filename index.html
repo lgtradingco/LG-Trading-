@@ -1014,6 +1014,143 @@ nav a.active  { color: var(--tan-lite); border-bottom-color: var(--tan); }
 }
 .m-btn-ghost:hover { border-color: var(--olive-mid); color: var(--text); }
 
+/* ── SOLD OVERLAY ─────────────────────────────────── */
+.sold-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27,29,21,0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: none;
+}
+.sold-badge {
+  background: #7a1a1a;
+  color: #f0e8e8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding: 0.45rem 1.25rem;
+  border: 1.5px solid rgba(240,232,232,0.35);
+}
+
+/* ── MODAL: SOLD BANNER ───────────────────────────── */
+.m-sold-banner {
+  background: #7a1a1a;
+  color: #f0e8e8;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 0.7rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ── PAYPAL BUTTON ────────────────────────────────── */
+.m-btn-paypal {
+  flex: 1;
+  background: #003087;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.m-btn-paypal:hover { background: #001f5b; }
+.m-btn-paypal .pp-mark {
+  font-size: 0.75rem;
+  font-style: italic;
+  letter-spacing: 0;
+  font-weight: 900;
+}
+
+/* ── HOW TO BUY PAGE ──────────────────────────────── */
+.payment-section {
+  margin-bottom: 3rem;
+}
+.payment-steps {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.pay-step {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-top: 3px solid var(--tan);
+}
+.pay-step-num {
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--olive-mid);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.pay-step h3 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.pay-step p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+.paypal-info-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid #003087;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.paypal-info-box .pp-label {
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+.paypal-info-box .pp-email {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #003087;
+}
+.paypal-info-box .pp-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+@media (max-width: 700px) {
+  .payment-steps { grid-template-columns: 1fr; }
+}
+
 /* ── FOOTER ───────────────────────────────────────── */
 footer {
   background: var(--ink);
@@ -1176,7 +1313,7 @@ footer {
       <a onclick="showPage('militaria')">Militaria</a>
       <a onclick="showPage('posters')">Posters</a>
       <a onclick="showPage('art')">Art &amp; Collectibles</a>
-      <a onclick="showPage('shipping')">Shipping</a>
+      <a onclick="showPage('shipping')">How to Buy</a>
       <a onclick="showPage('about')">About</a>
       <a onclick="showPage('contact')">Contact</a>
     </nav>
@@ -1746,12 +1883,46 @@ footer {
   <div class="inner-hero">
     <div class="inner-hero-wrap">
       <div class="inner-hero-rule"></div>
-      <h1>Shipping</h1>
-      <p>All items are insured and tracked. Estimates below are for domestic US shipping.</p>
+      <h1>How to Buy</h1>
+      <p>Secure payment via PayPal. All items insured and tracked for shipping.</p>
     </div>
   </div>
 
   <div class="shipping-wrap">
+
+    <!-- PAYMENT SECTION -->
+    <div class="payment-section">
+      <div class="section-label">Payment</div>
+      <h2 class="section-title">Purchasing an Item</h2>
+      <div class="section-divider"></div>
+
+      <div class="payment-steps">
+        <div class="pay-step">
+          <div class="pay-step-num">Items under $500</div>
+          <h3>Direct Purchase</h3>
+          <p>Click <strong>Buy Now via PayPal</strong> on any listing. Pay securely through PayPal using your account or any credit card. Once payment is confirmed, the item is marked sold and shipped within 2 business days.</p>
+        </div>
+        <div class="pay-step">
+          <div class="pay-step-num">Items $500 and over</div>
+          <h3>Inquire First</h3>
+          <p>Use the <strong>Inquire About This Item</strong> button to contact us first. We will confirm availability, answer any questions, and send a PayPal invoice directly to your email.</p>
+        </div>
+      </div>
+
+      <div class="paypal-info-box">
+        <div>
+          <div class="pp-label">Payment via</div>
+          <div class="pp-email">PayPal &mdash; lucahangoetzke@gmail.com</div>
+        </div>
+        <div class="pp-note">
+          All payments processed securely through PayPal. You do not need a PayPal account &mdash; any major credit or debit card accepted. Items are one-of-a-kind; once sold they are removed from the listing.
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Shipping</div>
+    <h2 class="section-title">Domestic US Estimates</h2>
+    <div class="section-divider"></div>
 
     <div class="ship-table-wrap">
       <div class="ship-row header-row">
@@ -1928,7 +2099,7 @@ footer {
       <a onclick="showPage('shop')">All Items</a>
       <a onclick="showPage('militaria')">Militaria</a>
       <a onclick="showPage('posters')">Posters</a>
-      <a onclick="showPage('shipping')">Shipping</a>
+      <a onclick="showPage('shipping')">How to Buy</a>
       <a onclick="showPage('about')">About</a>
       <a onclick="showPage('contact')">Contact</a>
     </div>
@@ -1954,9 +2125,13 @@ footer {
       <div class="m-sku" id="mSku"></div>
       <div class="m-desc" id="mDesc"></div>
       <div class="m-ship" id="mShip"></div>
-      <div class="m-actions">
-        <button class="m-btn-primary" onclick="goContact()">Inquire About This Item</button>
-        <button class="m-btn-ghost" onclick="closeModal()">Close</button>
+      <div class="m-sold-banner" id="mSoldBanner" style="display:none;">This Item Has Been Sold</div>
+      <div class="m-actions" id="mBuyActions">
+        <a class="m-btn-paypal" id="mBuyBtn" href="#" target="_blank" rel="noopener"><span class="pp-mark">P</span>Buy Now &mdash; PayPal</a>
+        <button class="m-btn-primary" onclick="goContact()">Inquire</button>
+      </div>
+      <div class="m-actions" style="margin-top:0.5rem;">
+        <button class="m-btn-ghost" style="flex:1;" onclick="closeModal()">Close</button>
       </div>
     </div>
   </div>
@@ -2160,21 +2335,45 @@ const allItems = [
   const g = document.getElementById('shopGrid');
   allItems.forEach(item => {
     const p = P[item.id];
+    const isSold = p.sold === true;
     const div = document.createElement('div');
     div.className = 'item-card';
     div.setAttribute('data-cats', item.cats.join(' '));
-    div.onclick = () => openModal(item.id);
+    div.setAttribute('data-pid', item.id);
+    if (!isSold) div.onclick = () => openModal(item.id);
     div.innerHTML = `
+      ${isSold ? '<div class="sold-overlay"><div class="sold-badge">Sold</div></div>' : ''}
       <div class="item-img"><img src="${p.imgs[0]}" alt="${p.title}" loading="lazy" /></div>
       <div class="item-body">
         <div class="item-cat">${p.cat}</div>
         <div class="item-title">${p.title}</div>
         <div class="item-foot">
-          <div class="item-price">${p.price}</div>
-          <div class="item-sku">${p.sku}</div>
+          <div class="item-price" style="${isSold ? 'text-decoration:line-through;color:var(--muted)' : ''}">${p.price}</div>
+          <div class="item-sku">${isSold ? '<span style="color:#7a1a1a;font-weight:700;letter-spacing:2px;">SOLD</span>' : p.sku}</div>
         </div>
       </div>`;
     g.appendChild(div);
+  });
+})();
+
+/* Apply sold overlays to all static cards (militaria, posters, art pages) */
+(function initSoldStates() {
+  document.querySelectorAll('.item-card:not([data-pid])').forEach(card => {
+    const oc = card.getAttribute('onclick') || '';
+    const m = oc.match(/openModal\('(\w+)'\)/);
+    if (!m) return;
+    const id = m[1];
+    if (!P[id] || P[id].sold !== true) return;
+    card.onclick = null;
+    card.removeAttribute('onclick');
+    const overlay = document.createElement('div');
+    overlay.className = 'sold-overlay';
+    overlay.innerHTML = '<div class="sold-badge">Sold</div>';
+    card.insertBefore(overlay, card.firstChild);
+    const priceEl = card.querySelector('.item-price');
+    if (priceEl) { priceEl.style.textDecoration = 'line-through'; priceEl.style.color = 'var(--muted)'; }
+    const skuEl = card.querySelector('.item-sku');
+    if (skuEl) { skuEl.innerHTML = '<span style="color:#7a1a1a;font-weight:700;letter-spacing:2px;">SOLD</span>'; }
   });
 })();
 
@@ -2210,12 +2409,24 @@ function filterShop(btn, cat) {
 /* ── MODAL ────────────────────────────────────────── */
 function openModal(id) {
   const p = P[id];
-  document.getElementById('mCat').innerHTML   = p.cat;
+  const isSold = p.sold === true;
+  document.getElementById('mCat').innerHTML     = p.cat;
   document.getElementById('mTitle').textContent = p.title;
   document.getElementById('mPrice').textContent = p.price;
-  document.getElementById('mSku').textContent   = p.sku;
-  document.getElementById('mDesc').innerHTML   = p.desc;
-  document.getElementById('mShip').innerHTML   = p.ship;
+  document.getElementById('mPrice').style.textDecoration = isSold ? 'line-through' : '';
+  document.getElementById('mSku').textContent   = isSold ? p.sku + '  —  SOLD' : p.sku;
+  document.getElementById('mDesc').innerHTML    = p.desc;
+  document.getElementById('mShip').innerHTML    = p.ship;
+
+  /* sold / buy state */
+  document.getElementById('mSoldBanner').style.display = isSold ? 'block' : 'none';
+  document.getElementById('mBuyActions').style.display  = isSold ? 'none'  : 'flex';
+  if (!isSold) {
+    const amount = p.price.replace(/[$,]/g, '');
+    document.getElementById('mBuyBtn').href =
+      'https://www.paypal.com/paypalme/lucahangoetzke/' + amount;
+  }
+
   const main  = document.getElementById('gMain');
   const strip = document.getElementById('gStrip');
   main.src = p.imgs[0];
