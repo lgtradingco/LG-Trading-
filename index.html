@@ -1734,6 +1734,16 @@ footer {
         </div>
       </div>
 
+      <div class="item-card" onclick="openModal('p32')">
+        <div class="heritage-tag">c.1950s Original</div>
+        <div class="item-img"><img src="French Air Force Poster (Delfo)/poster.jpg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">Military Aviation &nbsp;&middot;&nbsp; French Air Force</div>
+          <div class="item-title">&lsquo;L&rsquo;Arm&eacute;e de l&rsquo;Air&rsquo; French Air Force Recruitment Poster &mdash; attrib. Yves Delfo, c.1950s &mdash; Framed</div>
+          <div class="item-foot"><div class="item-price">$495</div><div class="item-sku">LG-1031</div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1922,6 +1932,16 @@ footer {
           <div class="item-cat">WWII &nbsp;&middot;&nbsp; War Loan</div>
           <div class="item-title">WWII &lsquo;6th War Loan&rsquo; $100 War Savings Bond Poster &mdash; Treasury Dept., 1944</div>
           <div class="item-foot"><div class="item-price">$125</div><div class="item-sku">LG-1030</div></div>
+        </div>
+      </div>
+
+      <div class="item-card" onclick="openModal('p32')">
+        <div class="heritage-tag">c.1950s Original</div>
+        <div class="item-img"><img src="French Air Force Poster (Delfo)/poster.jpg" alt="" loading="lazy" /></div>
+        <div class="item-body">
+          <div class="item-cat">French Military &nbsp;&middot;&nbsp; Aviation</div>
+          <div class="item-title">&lsquo;L&rsquo;Arm&eacute;e de l&rsquo;Air&rsquo; French Air Force Recruitment Poster &mdash; attrib. Yves Delfo, c.1950s &mdash; Framed</div>
+          <div class="item-foot"><div class="item-price">$495</div><div class="item-sku">LG-1031</div></div>
         </div>
       </div>
 
@@ -2270,6 +2290,7 @@ footer {
           <option>LG-1028 &mdash; WWII Observe Blackout Discipline Poster &mdash; $225</option>
           <option>LG-1029 &mdash; WWII $200 War Savings Bond Poster (FDR) &mdash; $175</option>
           <option>LG-1030 &mdash; WWII 6th War Loan $100 Bond Poster &mdash; $125</option>
+          <option>LG-1031 &mdash; L&rsquo;Arm&eacute;e de l&rsquo;Air French Air Force Poster (Framed) &mdash; $495</option>
           <option>General Inquiry</option>
         </select>
       </div>
@@ -2605,6 +2626,14 @@ const P = {
     desc:`Original US Treasury Department display poster for the Sixth War Loan drive, late 1944. Features an oversized replica of a $100 Series E War Savings Bond beside a large yellow \u20186th WAR LOAN\u2019 graphic. Produced to drive homefront bond subscription during the push for victory. Bold orange ground with strong graphic type. Condition: Good \u2014 original folds, minor edge wear.`,
     ship:`<strong>Rolled poster.</strong> Archival tube. Est. $15\u201325 via USPS Priority Mail within the US. International \u2014 contact for quote.`,
     imgs:['WWII 6th War Loan 100 Dollar Bond Poster/poster.jpg']
+  },
+  p32: {
+    cat:'Military Aviation &nbsp;&middot;&nbsp; French Air Force', sku:'LG-1031',
+    title:"\u2018L\u2019Arm\u00e9e de l\u2019Air\u2019 French Air Force Recruitment Poster \u2014 attrib. Yves Delfo, c.1950s \u2014 Framed",
+    price:'$495',
+    desc:`Original vintage French Air Force recruitment poster depicting a pilot in full flight suit, helmet, and oxygen mask seated in the cockpit of an early French jet fighter (De Havilland Vampire era, c.1948\u20131955). Bold blue typography reads <em>\u201cL\u2019ARM\u00c9E DE L\u2019AIR\u201d</em> across the bottom in classic mid-century French style. Believed to be an original 1950s lithograph attributed to noted French aviation poster artist <strong>Yves Delfo</strong> (1921\u20131983), whose L\u2019Arm\u00e9e de l\u2019Air cockpit posters are collected internationally and have appeared at Drouot and other French auction houses. Presented in a gold gilt-style wood frame. Overall framed dimensions approximately 24\u2033 W \u00d7 38\u00bd\u2033 H. Condition: Good vintage condition \u2014 gentle age-related wear to frame and print.`,
+    ship:`<strong>Framed item.</strong> Corner-protected and double-boxed. Est. $45\u201375 via UPS Ground within the US. International \u2014 contact for quote.`,
+    imgs:['French Air Force Poster (Delfo)/poster.jpg','French Air Force Poster (Delfo)/detail.png']
   }
 };
 
@@ -2640,7 +2669,8 @@ const allItems = [
   { id:'p28', cats:['militaria','posters'] },
   { id:'p29', cats:['militaria','posters'] },
   { id:'p30', cats:['militaria','posters'] },
-  { id:'p31', cats:['militaria','posters'] }
+  { id:'p31', cats:['militaria','posters'] },
+  { id:'p32', cats:['militaria','posters'] }
 ];
 
 /* Build shop grid on load */
